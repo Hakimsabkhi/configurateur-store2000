@@ -147,7 +147,7 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail(mailOptions);
     return NextResponse.json({ message: 'Email envoyé avec succès !' }, { status: 200 });
 
-} catch (error) {
+  } catch (error) {
     console.error('Erreur lors de l\'envoi de l\'email :', error);
 
     // Check if error is an instance of Error
@@ -157,3 +157,4 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: 'Échec de l\'envoi de l\'email', error: String(error) }, { status: 500 });
     }
   }
+}
