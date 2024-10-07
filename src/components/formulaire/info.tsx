@@ -21,6 +21,7 @@ const Information: React.FC<InformationProps> = ({ onClose }) => {
 
   const [emailError, setEmailError] = useState<string | null>(null);
   const [phoneError, setPhoneError] = useState<string | null>(null);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   const citiesInFrance = ["Paris", "Lyon", "Marseille", "Toulouse", "Nice", "Nantes"];
   
@@ -77,8 +78,6 @@ const Information: React.FC<InformationProps> = ({ onClose }) => {
         ...formData,
       };
 
-      console.log('Combined Data:', combinedData);
-
       const res = await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -87,13 +86,17 @@ const Information: React.FC<InformationProps> = ({ onClose }) => {
 
       const result = await res.json();
       if (result.message === 'Email sent successfully!') {
-        console.log('Form data sent successfully:', combinedData);
+        setShowSuccessPopup(true); // Show the success pop-up
       } else {
         console.error('Failed to send email:', result.error);
       }
 
       if (onClose) onClose();
     }
+  };
+
+  const closePopup = () => {
+    setShowSuccessPopup(false); // Close the pop-up
   };
 
   return (
@@ -245,14 +248,29 @@ const Information: React.FC<InformationProps> = ({ onClose }) => {
           </>
         )}
 
-        <div className="w-fit py-4 max-lg:py-2">
+<div className="w-fit py-4 max-lg:py-2">
           <button type="submit" className="nav-btn px-8 rounded-full font-bold hover:bg-primary hover:text-cTextH max-md:text-xs max-xl:text-xs max-lg:text-[10px]">
             Envoyer
           </button>
         </div>
       </form>
+
+      {/* Success Popup Modal */}
+      {showSuccessPopup && (
+        <div className="fixed top-0 left-0 w-full h-screen bg-[rgba(0,0,0,0.5)] flex justify-center items-center z-[1100]">
+          <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center">
+            <h2 className="text-xl font-bold mb-4">Succès</h2>
+            <p>L&apos;email a été envoyé avec succès !</p>
+            <button
+              className="mt-4 px-6 py-2 bg-primary text-white font-bold rounded-lg"
+              onClick={closePopup}
+            >
+              Fermer
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
-
 export default Information;

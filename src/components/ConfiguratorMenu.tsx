@@ -67,7 +67,7 @@ const ConfiguratorMenu: React.FC<MultiStepMenuProps> = ({
   };
 
   return (
-    <div className="flex flex-col max-lg:absolute max-lg:bottom-0 max-lg:left-0 max-lg:w-full pointer-events-auto">
+    <div className="flex flex-col max-lg:absolute max-lg:bottom-0 max-lg:left-0 p-4 max-lg:w-full pointer-events-auto">
       {/* Step navigation (pass necessary props to StepsConfiguratorVolet) */}
       <StepsConfiguratorVolet
         currentStepId={currentStepId}

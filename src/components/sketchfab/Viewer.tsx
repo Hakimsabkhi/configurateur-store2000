@@ -221,7 +221,7 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
           />
           <APIDataFetcher apiClient={apiClientRef.current} />
 
-          <div className="fixed flex flex-col gap-4 top-[3%] left-[3%] max-lg:top-[0] w-[30%] h-[80%] max-lg:w-[95%] max-lg:h-[95%] max-lg:left-1/2 max-lg:transform max-lg:-translate-x-1/2 max-lg:justify-between bg-blend-overlay  inset-0 pointer-events-none">
+          <div className="fixed flex flex-col gap-4 top-[3%] left-[3%] max-lg:top-[0] w-[30%] h-[80%] max-lg:w-full max-lg:h-full max-lg:left-1/2 max-lg:transform max-lg:-translate-x-1/2 max-lg:justify-between bg-blend-overlay  inset-0 pointer-events-none">
             <div className=" mt-4 flex gap-[5%] justify-center items-center pointer-events-auto ">
               <button
                 className="w-[50px] h-[50px] border-none cursor-pointer flex items-center justify-center bg-cbutton shadow-[0_2px_6px_rgba(0,0,0,0.952)] rounded-full transition-shadow hover:bg-cwhite focus:bg-cwhite"
