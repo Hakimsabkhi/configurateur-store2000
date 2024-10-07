@@ -104,11 +104,11 @@ const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
   };
 
   return (
-    <div className="w-full flex flex-col justify-around gap-[10px]  max-md:min-h-[100px] ">
+    <div className="w-full flex flex-col gap-8 justify-around max-lg:min-h-[80px]">
       {isMobile && isConfigured ? (
-        <div className="flex flex-col gap-[5px]">
-          <h2 className="text-center">Votre volet est bien configuré: {commandeManualSelected}</h2>
-          <button onClick={handleReconfigure} className="nav-btn hover:bg-NavbuttonH">Reconfigure</button>
+        <div className="flex flex-col justify-center items-center text-cwhite text-center gap-[5px]">
+          <h2 className="text-cText font-bold text-xs">Votre volet est bien configuré: {commandeManualSelected}</h2>
+          <button onClick={handleReconfigure} className="nav-btn rounded-full text-sm font-bold max-lg:py-4 max-lg:w-[50%]">Reconfigure</button>
         </div>
       ) : (
         <>
@@ -116,40 +116,40 @@ const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
             <OptionSelector options={optionManoeuvre} selectedOption={manoeuvreSelected} handleChange={handleChange(setManoeuvreSelected)} type="choice" />
           )}
           {(!isMobile || visibleSection === 'Manual') && manoeuvreSelected === 'Manuel' && !loading && (
-            <div className="flex flex-col gap-[5px]">
-              <h3 className="text-sm font-bold uppercase max-md:text-center ">{manoeuvreConfig[0]}</h3>
+            <div className="flex flex-col gap-2">
+              <h3 className="text-sm text-cText font-bold max-md:text-center ">{manoeuvreConfig[0]}</h3>
               <div className="OptionSection">
                 <ManualSelector selectedOption={commandeManualSelected} handleChange={handleChange(setCommandeManualSelected)} />
               </div>
             </div>
           )}
           {(!isMobile || visibleSection === 'Motorise') && manoeuvreSelected === 'Motorisé' && !loading && (  
-              <div className="flex flex-col gap-[5px]">
-                <h3 className="text-sm font-bold uppercase max-md:text-center ">{manoeuvreConfig[1]}</h3>
+              <div className="flex flex-col gap-2">
+                <h3 className="text-sm font-bold uppercase text-cText max-md:text-center ">{manoeuvreConfig[1]}</h3>
                 <div className="OptionSection">
                   <MotoriseSelector selectedOption={optionMotorisationSelected} handleChange={handleChange(setOptionMotorisationSelected)} />
                 </div>
               </div>          
           )}
           {(!isMobile || visibleSection === 'Telecommande') && optionMotorisationSelected === 'Radio' && !loading && (
-            <div className="flex flex-col gap-[5px]">
-              <div><h3 className="text-sm font-bold uppercase max-md:text-center ">{manoeuvreConfig[2]}</h3></div>
+            <div className="flex flex-col gap-2">
+              <div><h3 className="text-sm font-bold uppercase max-md:text-center text-cText ">{manoeuvreConfig[2]}</h3></div>
               <div className="OptionSection">
                 <TelecommandeSelector selectedOption={optionTelecomandeSelected} handleChange={handleChange(setOptionTelecommandeSelected)} />
               </div>
             </div>
           )}
           {(!isMobile || visibleSection === 'Interrupteur') && optionMotorisationSelected === 'Filaire' && !loading && (
-            <div className="flex flex-col gap-[5px]">
-              <h3 className="text-sm font-bold uppercase max-md:text-center ">{manoeuvreConfig[3]}</h3>
+            <div className="flex flex-col gap-2">
+              <h3 className="text-sm font-bold uppercase max-md:text-center  text-cText">{manoeuvreConfig[3]}</h3>
               <div className="OptionSection">
                 <InterrupteurSelector selectedOption={optionInterrupteurSelected} handleChange={handleChange(setOptionInterrupteurSelected)} />
               </div>
             </div>
           )}
           {(!isMobile || visibleSection === 'SortieDeCable') && optionMotorisationSelected === 'Filaire' && !loading && (
-            <div className="flex flex-col gap-[5px]">
-              <h3 className="text-sm font-bold uppercase max-md:text-center ">{manoeuvreConfig[4]}</h3>
+            <div className="flex flex-col gap-2">
+              <h3 className="text-sm font-bold uppercase max-md:text-center text-cText">{manoeuvreConfig[4]}</h3>
               <div className="OptionSection">
                 <SortieDeCableSelector selectedOption={sortieDeCableSelected} handleChange={handleChange(setSortieDeCableSelected)} />
               </div>

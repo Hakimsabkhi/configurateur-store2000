@@ -34,8 +34,8 @@ const StepsComponentHandler: React.FC<StepsComponentHandlerProps> = ({
   };
 
   return (
-    <div className="flex flex-col bg-primary p-[10px] max-md:min-h-[200px] rounded-t gap-2">
-      <h1 className="font-semibold text-center uppercase max-xl:text-xs max-lg:text-[10px]">
+    <div className="flex flex-col bg-primary p-[10px] max-md:min-h-[10px] rounded-t-[16px] gap-2">
+      <h1 className="font-bold text-center uppercase max-xl:text-xs max-lg:text-sm text-cText">
     {  stepTitle}
       </h1>
       {rendercurrentStepId()}

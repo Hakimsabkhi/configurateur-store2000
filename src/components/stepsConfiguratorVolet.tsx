@@ -34,16 +34,16 @@ const StepsConfiguratorVolet: React.FC<StepsConfiguratorVoletProps> = ({
   }, [currentStepId, onStepTitleChange, voletSteps]);
 
   return (
-    <div className="flex flex-col justify-center rounded bg-primary p-[10px] gap-2 py-2 mb-2">
-    <h1 className="font-semibold text-center uppercase max-xl:text-xs max-lg:text-[10px]">
+    <div className="flex flex-col justify-center rounded-[16px] bg-primary p-[10px] gap-2 py-2 mb-2 max-lg:hidden">
+    <h1 className="font-bold text-center uppercase max-xl:text-xs max-lg:text-[10px] text-cText">
       Volet roulant rénovation sur mesure
     </h1>
     <div className="flex justify-center items-center gap-[5px]">
       <AiOutlineLeft
         className={`cursor-pointer ${
           previousStep < 1 || !enabledSteps[previousStep]
-            ? "text-gray-400 cursor-not-allowed"
-            : "text-white"
+            ? "text-secondary cursor-not-allowed"
+            : "text-secondary"
         }`}
         onClick={() =>
           previousStep >= 1 && enabledSteps[previousStep] && setCurrentStepId(previousStep)
@@ -68,8 +68,8 @@ const StepsConfiguratorVolet: React.FC<StepsConfiguratorVoletProps> = ({
             key={id}
             onClick={() => isStepEnabled && setCurrentStepId(id)}
             disabled={!isStepEnabled}
-            className={`text-xs max-xl:text-[10px] h-[40px] w-[150px] cursor-pointer border-none ${
-              isActive ? "bg-[#ffffff] text-[#000000]" : "bg-secondary text-[#ffffff]"
+            className={`text-sm max-xl:text-[14px] h-[60px] w-[180px] cursor-pointer rounded-full border-secondary py-2 font-bold border-2 ${
+              isActive ? "bg-primary text-cText" : "bg-secondary"
             } ${!isStepEnabled ? "disabled" : ""}`}
           >
             {title}
@@ -80,8 +80,8 @@ const StepsConfiguratorVolet: React.FC<StepsConfiguratorVoletProps> = ({
       <AiOutlineRight
         className={`cursor-pointer ${
           nextStep > totalSteps || !enabledSteps[nextStep]
-            ? "text-gray-400 cursor-not-allowed"
-            : "text-white"
+            ? "text-secondary cursor-not-allowed"
+            : "text-secondary"
         }`}
         onClick={() =>
           nextStep <= totalSteps && enabledSteps[nextStep] && setCurrentStepId(nextStep)

@@ -10,6 +10,14 @@ import LoadingScreen from "../LoadingScreen";
 import Image from "next/image";
 import ConfiguratorMenu from "../ConfiguratorMenu";
 import { ConfigIconIcon } from "../../assets/imageModule";
+import { IoSettingsSharp } from 'react-icons/io5'
+import { FiSettings } from 'react-icons/fi';
+import { MdBuild } from 'react-icons/md';
+import { AiFillSetting } from 'react-icons/ai';
+import { RiSettings3Fill } from 'react-icons/ri';
+
+
+
 
 const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
   const [coulisseTexture, setCoulisseTexture] = useState(
@@ -213,28 +221,27 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
           />
           <APIDataFetcher apiClient={apiClientRef.current} />
 
-          <div className="absolute flex flex-col gap-4 top-[3%] left-[2%] w-[30%] h-[80%]">
-            <div className=" flex gap-[5%] justify-center">
+          <div className="fixed flex flex-col gap-4 top-[3%] left-[3%] max-lg:top-[0] w-[30%] h-[80%] max-lg:w-[95%] max-lg:h-[95%] max-lg:left-1/2 max-lg:transform max-lg:-translate-x-1/2 max-lg:justify-between bg-blend-overlay  inset-0 pointer-events-none">
+            <div className=" mt-4 flex gap-[5%] justify-center items-center pointer-events-auto ">
               <button
-                className="w-[50px] h-[50px] border-none cursor-pointer flex items-center justify-center bg-cbutton shadow-[0_2px_6px_rgba(0,0,0,0.952)] rounded-[4px] transition-shadow hover:bg-cwhite focus:bg-cwhite"
+                className="w-[50px] h-[50px] border-none cursor-pointer flex items-center justify-center bg-cbutton shadow-[0_2px_6px_rgba(0,0,0,0.952)] rounded-full transition-shadow hover:bg-cwhite focus:bg-cwhite"
                 onClick={toggleMenu}
               >
-                <Image
+               <RiSettings3Fill size={34} />
+              {/*   <Image
                   src={ConfigIconIcon}
                   alt="Config Icon"
                   className="button-icon"
                   width={40}
                   height={40}
-                />
+                /> */}
               </button>
               <h2 className="flex items-center text-2xl max-2xl:text-xl max-xl:text-base max-lg:text-base max-md:text-sm w-fit h-full uppercase font-semibold">
                 Configurer mon volet
               </h2>
             </div>
-            {menuVisible && (
-              <div className="">
+            {menuVisible && (      
                 <ConfiguratorMenu onSelectionsChange={handleSelectionsChange} />
-              </div>
             )}
           </div>
         </>

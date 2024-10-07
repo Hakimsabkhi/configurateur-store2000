@@ -88,8 +88,8 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({
             onClick={() => handleLameChoice(choice)}
             className={`${
               choice.label === lameSelected
-                ? "flex text-[#000] bg-[#fff] rounded-[5px] p-[7px] gap-[20px] cursor-pointer hover:bg-cwhite hover:text-cblack w-full"
-                : "flex bg-secondary rounded-[5px] p-[7px] gap-[20px] cursor-pointer hover:bg-cwhite hover:text-cblack w-full"
+                ? "flex text-cText bg-primary font-bold border-secondary border-2 rounded-[16px] p-[7px] gap-[20px] cursor-pointer hover:bg-cwhite hover:text-cblack w-full"
+                : "flex bg-secondary rounded-[16px] font-bold p-[7px] border-secondary border-2 gap-[20px] cursor-pointer hover:bg-cwhite hover:text-cblack w-full"
             }`}
             onMouseEnter={(e) => handleMouseEnter(e, choice)}
             onMouseLeave={() => setHoveredChoice(null)}
@@ -114,7 +114,7 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({
                 className="hidden"
                 required
               />
-              <p className="text-xs max-md:text-xs font-extralight max-md:hidden text-center">
+              <p className="text-xs max-md:text-xs font-semibold max-md:hidden text-center">
                 {choice.description}
               </p>
             </div>
@@ -144,7 +144,7 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({
       )}
 
       <div className="flex gap-[10px] justify-center text-[12px]">
-        <div className="w-full flex justify-around flex-col h-full items-center gap-[5px]">
+        <div className="w-full flex justify-around flex-col h-full items-center gap-[5px] text-cText">
           <h3 className=" text-center text-sm max-md:text-xs">
             <strong>Largeur en mm</strong>
             <br />
@@ -154,7 +154,7 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({
           <input
             type="number"
             id="Largeur"
-            className="w-full h-[40px] rounded-[5px] border border-cblack text-center font-bold text-[16px] text-cblack "
+            className="w-full h-[40px] rounded-full border-2 border-cblack text-center font-bold text-[16px] text-cblack border-secondary"
             value={dimensions.Largeur === 0 ? "" : dimensions.Largeur}
             onChange={(e) => handleDimensionChange("Largeur", e.target.value)}
             onBlur={(e) => handleBlur("Largeur", e.target.value)}
@@ -163,7 +163,7 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({
             max={lameSelected === "Lame 41" ? 3000 : 3500}
           />
         </div>
-        <div className="w-full flex justify-around flex-col h-full items-center gap-[5px]">
+        <div className="w-full flex justify-around flex-col h-full items-center gap-[5px] text-cText">
           <h3 className=" text-center text-sm max-md:text-xs">
             <strong>Hauteur en mm </strong>
             <br />
@@ -172,7 +172,7 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({
           <input
             type="number"
             id="Hauteur"
-            className="w-full h-[40px] rounded-[5px] border border-cblack text-center font-bold text-[16px] text-cblack"
+            className="w-full h-[40px] rounded-full border-cblack text-center font-bold text-[16px] border-secondary border-2 text-cblack"
             value={dimensions.Hauteur === 0 ? "" : dimensions.Hauteur}
             onChange={(e) => handleDimensionChange("Hauteur", e.target.value)}
             onBlur={(e) => handleBlur("Hauteur", e.target.value)}

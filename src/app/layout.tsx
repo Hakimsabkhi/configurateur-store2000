@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
-import 'react-toastify/dist/ReactToastify.css';
 import React from 'react';
-import ClientLayout from '@/components/ClientLayout';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['400', '700'] });
 
@@ -16,9 +14,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <ClientLayout>
           {children}
-        </ClientLayout>
       </body>
     </html>
   );

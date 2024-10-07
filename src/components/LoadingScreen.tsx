@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import logo from '../assets/logovs.png';
+import logo from '../assets/logos2000.png';
 
 const LoadingScreen: React.FC = () => {
   const [progress, setProgress] = useState(0);
@@ -22,13 +22,13 @@ const LoadingScreen: React.FC = () => {
         <Image 
           src={logo} 
           alt="Logo" 
-          className="opacity-0 fade-animation" 
+          className="opacity-0 fade-animation w-[300px] h-auto" 
           priority 
         />
-        <div className="w-[300px] h-[10px] bg-[rgba(10,10,10,0.2)] my-[20px] mx-auto">
-          <div className="h-full bg-[rgb(27,34,97)]" style={{ width: `${progress}%` }}></div>
+        <div className="w-[300px] h-[10px] bg-tertiary my-[20px] mx-auto">
+          <div className="h-full bg-secondary" style={{ width: `${progress}%` }}></div>
         </div>
-        <div className="text-[18px] text-cblack">Loading...</div>
+        <div className="text-[18px] text-cText font-bold">Loading...</div>
       </div>
     </div>
   );

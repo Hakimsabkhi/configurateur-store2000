@@ -26,92 +26,73 @@ interface RecapTableProps {
 
 const RecapTable: React.FC<RecapTableProps> = ({
   lameSelected,
-  lameSelectedPrice,
   dimensions,
-  dimensionCost,
   poseInstalled,
-  poseInstalledPrice,
   selectedCoulisseColor,
   selectedTablierColor,
   selectedLameFinaleColor,
   manoeuvreSelected,
-  manoeuvreSelectedPrice,
   commandeManualSelected,
-  commandeManualSelectedPrice,
   optionMotorisationSelected,
-  optionMotorisationSelectedPrice,
   optionTelecomandeSelected,
-  telecommandePrice,
   optionInterrupteurSelected,
-  interrupteurPrice,
   sortieDeCableSelected,
-  sortieDeCablePrice,
 }) => {
   return (
     <table className="text-xs">
       <tbody>
         <tr>
           <th className="border-white p-2">Type de Lame</th>
-          <td className="text-white pl-2">{lameSelected}</td>
-          <td className="text-white pl-2">{lameSelectedPrice}€</td>
+          <td className="text-cText pl-2 font-bold border-black">{lameSelected}</td>
         </tr>
         <tr>
         <th className="border-white p-2">Couleurs</th>
-          <td className="text-white pl-2">
+          <td className="text-cText pl-2 font-bold border-secondary">
             Largeur: {dimensions.Largeur} mm <br/> Hauteur: {dimensions.Hauteur} mm
           </td >
-          <td className="text-white pl-2">{dimensionCost.toFixed(2)}€</td>
         </tr>
         <tr>
           <th className="border-white p-2">Type d&apos;Installation</th>
-          <td className="text-white pl-2">{poseInstalled}</td>
-          <td className="text-white pl-2">{poseInstalledPrice}€</td>
+          <td className="text-cText pl-2 font-bold">{poseInstalled}</td>
         </tr>
         <tr>
           <th className="border-white p-2">Couleurs</th>
-          <td className="text-white pl-2">
+          <td className="text-cText pl-2 font-bold">
             Coulisse: {selectedCoulisseColor} <br/> Tablier: {selectedTablierColor}{" "}
             <br/> Lame Finale: {selectedLameFinaleColor}
           </td>
-          <td className="text-white pl-2">30€</td>
         </tr>
         <tr>
           <th className="border-white p-2">Type de Manoeuvre</th>
-          <td className="text-white pl-2">{manoeuvreSelected}</td>
-          <td className="text-white pl-2">{manoeuvreSelectedPrice}€</td>
+          <td className="text-cText pl-2 font-bold">{manoeuvreSelected}</td>
         </tr>
         {manoeuvreSelected === "Manuel" && (
           <tr>
             <th className="border-white p-2">Outil de commande</th>
-            <td className="text-white pl-2">{commandeManualSelected}</td>
-            <td className="text-white pl-2">{commandeManualSelectedPrice}€</td>
+            <td className="text-cText pl-2 font-bold">{commandeManualSelected}</td>
           </tr>
         )}
         {manoeuvreSelected === "Motorisé" && (
           <>
             <tr>
               <th className="border-white p-2">Type de motorisation</th>
-              <td className="text-white pl-2">{optionMotorisationSelected}</td>
-              <td className="text-white pl-2">{optionMotorisationSelectedPrice}€</td>
+              <td className="text-cText pl-2 font-bold">{optionMotorisationSelected}</td>
             </tr>
             {optionMotorisationSelected === "Radio" && (
               <tr>
                 <th className="border-white p-2">Télécommande</th>
-                <td className="text-white pl-2">{optionTelecomandeSelected}</td>
-                <td className="text-white pl-2">{telecommandePrice}€</td>
+                <td className="text-cText pl-2 font-bold">{optionTelecomandeSelected}</td>
               </tr>
             )}
             {optionMotorisationSelected === "Filaire" && (
               <>
                 <tr>
                   <th className="border-white p-2">Interrupteur</th>
-                  <td className="text-white pl-2">{optionInterrupteurSelected}</td>
-                  <td className="text-white pl-2">{interrupteurPrice}€</td>
+                  <td className="text-cText pl-2 font-bold">{optionInterrupteurSelected}</td>
                 </tr>
                 <tr>
                   <th className="border-white p-2">Sortie de cable</th>
-                  <td className="text-white pl-2">{sortieDeCableSelected}</td>
-                  <td className="text-white pl-2">{sortieDeCablePrice}€</td>
+                  <td className="text-cText pl-2 font-bold">{sortieDeCableSelected}</td>
                 </tr>
               </>
             )}

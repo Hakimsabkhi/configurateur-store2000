@@ -37,10 +37,10 @@ function TypeDePose({ enableNextButton }: TypeDePoseProps) {
         {poseOptions.map((choice) => (
           <label
             key={choice.label}
-            className={`${
+            className={`border-2 border-secondary rounded-[16px] max-lg:text-xs max-lg:justify-center ${
               choice.label === poseInstalled
-                ? "selected flex text-[#000] bg-[#fff] rounded-[5px] p-[6px] gap-[20px] cursor-pointer"
-                : "flex bg-secondary rounded-[5px] p-[6px] gap-[20px] cursor-pointer hover:bg-cwhite hover:text-cblack"
+                ? "selected flex text-[#000] bg-[#fff] p-[6px] gap-[20px] cursor-pointer font-bold"
+                : "flex bg-secondary p-[6px] gap-[20px] cursor-pointer hover:bg-cwhite"
             }`}
             onMouseEnter={(e) => handleMouseEnter(e, choice)}
             onMouseLeave={() => setHoveredChoice(null)}
@@ -50,7 +50,7 @@ function TypeDePose({ enableNextButton }: TypeDePoseProps) {
               alt={choice.label}
               width={100}
               height={100}
-              className="h-auto rounded-[10px] w-[15%] max-2xl:rounded-[3px] max-md:hidden"
+              className="h-auto rounded-[16px] w-[15%] max-2xl:rounded-[3px] max-md:hidden"
               style={{ objectFit: "contain" }}
               quality={75}
             />
@@ -77,7 +77,7 @@ function TypeDePose({ enableNextButton }: TypeDePoseProps) {
       </div>
       {hoveredChoice && (
         <div
-          className="popup-info"
+          className="popup-info max-lg:hidden"
           style={{
             top: `${popupPosition.top}px`,
             left: `${popupPosition.left}px`,

@@ -37,10 +37,10 @@ const OptionSelector: React.FC<OptionSelectorProps> = ({
           <label
             key={index}
             onClick={() => handleChange(option)}
-            className={`${
+            className={`max-lg:text-xs ${
               option.label === selectedOption
-                ? "bg-[#ffffff] text-[#000] border-[2px] border-[rgb(255,255,255)] rounded w-full"
-                : "bg-[rgba(5,30,80,1)] border-[2px] border-[#fff] rounded w-full hover:bg-[#ffffff] hover:text-[#000]"
+                ? "bg-[#ffffff] text-[#000] border-2 border-secondary rounded-full w-full font-bold"
+                : "bg-secondary border-2 border-secondary rounded-full  w-full hover:bg-[#ffffff] hover:text-[#000]"
             }`}
             onMouseEnter={(e) => handleMouseEnter(e, option)}
             onMouseLeave={() => setHoveredChoice(null)}

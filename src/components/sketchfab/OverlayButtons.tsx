@@ -9,6 +9,14 @@ import {
 } from "../../assets/imageModule";
 import { OverlayButtonsProps } from "../../types/interfaces";
 import Image from "next/image";
+import { FaRegEye } from 'react-icons/fa';
+import { BiArrowToLeft } from 'react-icons/bi';
+import { FiEye } from 'react-icons/fi';
+import { BiArrowToRight } from 'react-icons/bi';
+import { BiRotateRight } from 'react-icons/bi';
+import { FaVideo } from 'react-icons/fa';
+import { FaPauseCircle } from 'react-icons/fa';
+
 
 const OverlayButtons: React.FC<OverlayButtonsProps> = ({
   handleViewChange,
@@ -120,65 +128,66 @@ const OverlayButtons: React.FC<OverlayButtonsProps> = ({
     <div className="fixed max-md:hidden bottom-[5%] left-1/2 translate-x-[-50%] translate-y-[-50%] flex flex-row gap-[3%] w-[50%] h-[50px] justify-center">
       <button
         onClick={handleOutsideView}
-        className="w-[50px] h-[50px] border-none cursor-pointer flex items-center justify-center bg-cbutton shadow-[0_2px_6px_rgba(0,0,0,0.952)] rounded-[4px] transition-shadow hover:bg-cwhite focus:bg-cwhite"
+        className="w-[50px] h-[50px] border-none cursor-pointer flex items-center justify-center bg-cbutton shadow-[0_2px_6px_rgba(0,0,0,0.952)] rounded-full transition-shadow hover:bg-cwhite focus:bg-cwhite"
         disabled={buttonsDisabled}
       >
-        <Image
+        <FaRegEye size={34} />
+        {/* <Image
           src={outsideViewIcon}
           alt="Outside View"
-          className="button-icon"
+          className="button-icon "
           width={40}
           height={40}
-        />
+        /> */}
       </button>
       <button
         onClick={handleInsideView}
-        className="w-[50px] h-[50px] border-none cursor-pointer flex items-center justify-center bg-cbutton shadow-[0_2px_6px_rgba(0,0,0,0.952)] rounded-[4px] transition-shadow hover:bg-cwhite focus:bg-cwhite"
+        className="w-[50px] h-[50px] border-none cursor-pointer flex items-center justify-center bg-cbutton shadow-[0_2px_6px_rgba(0,0,0,0.952)] rounded-full transition-shadow hover:bg-cwhite focus:bg-cwhite"
         disabled={buttonsDisabled}
       >
-        <Image
+        <FiEye size={34} />
+      {/*   <Image
           src={insideViewIcon}
           alt="Inside View"
           className="button-icon"
           width={40}
           height={40}
-        />
+        /> */}
       </button>
       <button
         onClick={handleOSideView}
-        className="w-[50px] h-[50px] border-none cursor-pointer flex items-center justify-center bg-cbutton shadow-[0_2px_6px_rgba(0,0,0,0.952)] rounded-[4px] transition-shadow hover:bg-cwhite focus:bg-cwhite"
+        className="w-[50px] h-[50px] border-none cursor-pointer flex items-center justify-center bg-cbutton shadow-[0_2px_6px_rgba(0,0,0,0.952)] rounded-full transition-shadow hover:bg-cwhite focus:bg-cwhite"
         disabled={buttonsDisabled}
       >
-        <Image
+        <BiArrowToRight size={34} />
+      {/*   <Image
           src={OsideViewIcon}
           alt="Side View"
           className="button-icon"
           width={40}
           height={40}
-        />
+        /> */}
       </button>
       <button
         onClick={handleISideView}
-        className="w-[50px] h-[50px] border-none cursor-pointer flex items-center justify-center bg-cbutton shadow-[0_2px_6px_rgba(0,0,0,0.952)] rounded-[4px] transition-shadow hover:bg-cwhite focus:bg-cwhite"
+        className="w-[50px] h-[50px] border-none cursor-pointer flex items-center justify-center bg-cbutton shadow-[0_2px_6px_rgba(0,0,0,0.952)] rounded-full transition-shadow hover:bg-cwhite focus:bg-cwhite"
         disabled={buttonsDisabled}
       >
-        <Image
+         <BiArrowToLeft size={34} />
+      {/*   <Image
           src={IsideViewIcon}
           alt="Side View"
           className="button-icon"
           width={40}
           height={40}
-        />
+        /> */}
       </button>
-      <button onClick={toggleRotation} className="w-[50px] h-[50px] border-none cursor-pointer flex items-center justify-center bg-cbutton shadow-[0_2px_6px_rgba(0,0,0,0.952)] rounded-[4px] transition-shadow hover:bg-cwhite focus:bg-cwhite">
-        <Image
-          src={rotating ? disableRotation : enableRotation}
-          alt="Toggle Rotation"
-          className="button-icon"
-          width={40}
-          height={40}
-        />
-      </button>
+      <button 
+      onClick={toggleRotation} 
+      className="w-[50px] h-[50px] border-none cursor-pointer flex items-center justify-center bg-cbutton shadow-[0_2px_6px_rgba(0,0,0,0.952)] rounded-full transition-shadow hover:bg-cwhite focus:bg-cwhite"
+    >
+      {rotating ? <FaPauseCircle size={34} /> : <BiRotateRight size={34} />}
+    </button>
     </div>
   );
 };

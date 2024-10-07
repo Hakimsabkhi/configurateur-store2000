@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { VoletState, Dimensions, Colors } from "../types/interfaces";
 
-
 const initialState: VoletState = {
   lameSelected: "",
   dimensions: { Largeur: 1000, Hauteur: 1000 },
@@ -18,8 +17,16 @@ const initialState: VoletState = {
   optionInterrupteurSelected: "",
   sortieDeCableSelected: "",
   multiplier: 1,  // <-- Add this line
-};
 
+  // Add these new fields from FormData
+  deliveryOption: "",
+  fullNameOrCompany: "",
+  email: "",
+  phoneNumber: "",
+  postalCode: "",
+  city: "",
+  deliveryAddress: "",
+};
 
 const voletSlice = createSlice({
   name: "volet",
@@ -42,7 +49,6 @@ const voletSlice = createSlice({
     },
     setMultiplier: (state, action: PayloadAction<number>) => {
       state.multiplier = action.payload;
-      console.log("Multiplier set to:", action.payload); // <-- Console log
     },
     setPoseInstalled: (state, action: PayloadAction<string>) => {
       state.poseInstalled = action.payload;
@@ -68,7 +74,7 @@ const voletSlice = createSlice({
     setVoletFromDevis: (state, action: PayloadAction<VoletState>) => {
       return { ...state, ...action.payload };
     },
-    reset: () => initialState, // Reset the state to its initial values
+    reset: () => initialState,
   },
 });
 
@@ -88,6 +94,7 @@ export const {
   reset,
 } = voletSlice.actions;
 
+// Selectors for individual properties
 export const selectLameSelected = (state: { volet: VoletState }) =>
   state.volet.lameSelected;
 export const selectPoseInstalled = (state: { volet: VoletState }) =>
@@ -114,5 +121,8 @@ export const selectSortieDeCable = (state: { volet: VoletState }) =>
   state.volet.sortieDeCableSelected;
 export const selectMultiplier = (state: { volet: VoletState }) =>
   state.volet.multiplier;
+
+// Selector for the entire VoletState
+export const selectVoletState = (state: { volet: VoletState }) => state.volet;
 
 export default voletSlice.reducer;

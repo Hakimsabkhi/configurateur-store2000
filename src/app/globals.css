@@ -11,13 +11,16 @@
 }
 
 :root {
-  --color-primary: #03887B;
-  --color-secondary: #051E50;
-  --color-cwhite: #FFFFFF;
-  --color-cblack: #000000;
-  --color-cbutton:  #039587;
-  --color-Navbutton: #039587;
-  --color-NavbuttonH: #B3BAE6;
+  --color-primary: #F2F2F2 ;
+  --color-secondary: #141B34;
+  --color-tertiary: #CDE6F4;
+  --color-cText: #2C3E50;
+  --color-cTextH: #2C3E50;
+  --color-cbutton:  #F7941D;
+  --color-Navbutton: #F7941D;
+  --color-NavbuttonText: #FFFFFF;
+  --color-NavbuttonH: #CDE6F4;
+  --color-NavbuttonHText: #2C3E50;
   --color-boxshadow:  #000000;
 }
 
@@ -56,7 +59,7 @@ body {
   padding: 10px;
   background-color:var(--color-secondary);
   border: 2px solid #ffffff;
-  border-radius: 5px;
+  border-radius: 20px;
   box-shadow: 0 4px 8px var(--color-box-shadow);
   z-index: 10; 
 }
@@ -64,28 +67,23 @@ body {
 .nav-btn {
   width: 100%;
   height: fit-content;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 14px;
-  border-radius: 5px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  font-size: 18px;
   background-color: var(--color-Navbutton);
   cursor: pointer;
-  color: #fff;
   transition: background-color .3s ease;
-  border: 2px solid #fff;
 }
 
 td {
-  border: 1px solid var(--color-cwhite); 
-  padding: 3px;
+  border: 1px solid; 
   text-align: left;
-  font-weight: 400;
   color:#000000;
 }
 
 
 th {
-  border: 1px solid var(--color-secondary); 
+  border: 1px solid; 
   background-color: var(--color-secondary);
   color: #ffffff;
   text-align: left;

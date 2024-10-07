@@ -164,10 +164,18 @@ export interface Colors {
   lameFinale: string;
 }
 
+// src/types/interfaces.ts
 export interface VoletState {
   lameSelected: string;
-  dimensions: Dimensions;
-  selectedColor: Colors;
+  dimensions: {
+    Largeur: number;
+    Hauteur: number;
+  };
+  selectedColor: {
+    coulisse: string;
+    tablier: string;
+    lameFinale: string;
+  };
   poseInstalled: string;
   manoeuvreSelected: string;
   commandeManualSelected: string;
@@ -175,8 +183,18 @@ export interface VoletState {
   optionTelecomandeSelected: string;
   optionInterrupteurSelected: string;
   sortieDeCableSelected: string;
-  multiplier: number; // <-- Add this line
+  multiplier: number;
+  
+  // Add these new fields from FormData
+  deliveryOption: string;
+  fullNameOrCompany: string;
+  email: string;
+  phoneNumber: string;
+  postalCode: string;
+  city: string;
+  deliveryAddress: string;
 }
+
 
 
 export interface RootState {

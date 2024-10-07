@@ -66,8 +66,8 @@ const CouleurVolet: React.FC<CouleurVoletProps> = ({enableNextButton}) => {
     return Object.entries(colors).map(([colorName, colorCode]) => (
       <div
         key={`${category}-${colorName}`}
-        className={`${colorName === selectedColors[category] ? "selected flex-[1_0_30%] flex flex-col justify-center items-center gap-[5px] text-center text-[12px] p-[5px] cursor-pointer rounded-[3px] border-2 text-cblack border-cwhite bg-[#ffffff] hover:bg-[#ffffff] hover:text-cblack "
-          : "flex-[1_0_30%] flex flex-col justify-center items-center gap-[5px] text-center text-[12px] p-[5px] cursor-pointer rounded-[3px] border-2 border-cwhite bg-[rgba(5,30,80,1)] hover:bg-[#ffffff] hover:text-cblack max-md:text-[10px] "
+        className={`rounded-full border-secondary ${colorName === selectedColors[category] ? "selected flex-[1_0_30%] flex flex-col justify-center items-center gap-[5px] text-center text-[12px] p-[5px] cursor-pointer rounded-[3px] border-2 text-cblack border-cwhite bg-primary text-cText font-bold "
+          : "flex-[1_0_30%] flex flex-col justify-center items-center gap-[5px] text-center text-[12px] p-[5px] cursor-pointer rounded-[3px] border-2 border-cwhite bg-secondary hover:text-cblack max-md:text-[10px] "
       }`}
         onClick={() => handleColorSelection(colorName, category)}
         style={{ cursor: 'pointer', textAlign: 'center' }}
@@ -92,12 +92,12 @@ const CouleurVolet: React.FC<CouleurVoletProps> = ({enableNextButton}) => {
 
   const renderSection = (section: keyof SelectedColor, title: string) => (
 
-      <div className="flex flex-col justify-center gap-[5px] max-2xl:gap-[5px]">
+      <div className="flex flex-col justify-center gap-2">
         {loading ? (
-          <div className="border-4 border-solid border-cwhite border-t-4 border-t-secondary rounded-full w-10 h-10 animate-spin mx-auto"></div>
+          <div className="border-4 gap-2 border-solid border-cwhite border-t-4 border-t-secondary rounded-full w-10 h-10 animate-spin mx-auto"></div>
         ) : (
           <>
-          <h3 className="text-sm font-bold uppercase max-md:text-center ">{title}</h3>
+          <h3 className="text-sm font-bold max-md:text-center text-cText ">{title}</h3>
           <div className="flex justify-center flex-wrap gap-[5px]">{renderColorChoices(section)}</div>
           </>        
         )}
@@ -105,11 +105,11 @@ const CouleurVolet: React.FC<CouleurVoletProps> = ({enableNextButton}) => {
   );
 
   return (
-    <div className="w-full flex flex-col gap-2 justify-around max-md:min-h-[110px]  ">
+    <div className="w-full flex flex-col gap-8 justify-around max-lg:min-h-[80px]  ">
       {isMobile && isConfigured ? (
         <div className="flex flex-col justify-center items-center text-cwhite text-center gap-[5px]">
-          <p>Votre volet est bien colorisé</p>
-          <button onClick={handleReconfigure} className="nav-btn hover:bg-NavbuttonH">Recoloriser</button>
+          <p className='text-cText font-bold text-xs'>Votre volet est bien colorisé</p>
+          <button onClick={handleReconfigure} className="nav-btn rounded-full text-sm font-bold max-lg:py-4 max-lg:w-[50%]">Recoloriser</button>
         </div>
       ) : (
         <>

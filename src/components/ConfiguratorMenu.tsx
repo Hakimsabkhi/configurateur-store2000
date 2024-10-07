@@ -2,10 +2,9 @@ import React, { useState, useCallback } from "react";
 import StepsConfiguratorVolet from "./stepsConfiguratorVolet";
 import StepsComponentHandler from "./StepsComponentHandler";
 import StepNavigationButtons from "./StepNavigationButtons";
-import TotalCostCalculateur from "./calculator/TotalCostCalculator";
-import Information from "./formulaire/info";
 import WarningPopup from "./WarningPopup";
 import { MultiStepMenuProps, EnabledSteps } from "../types/interfaces";
+import Information from "./formulaire/info";
 
 const ConfiguratorMenu: React.FC<MultiStepMenuProps> = ({
   onSelectionsChange,
@@ -35,15 +34,14 @@ const ConfiguratorMenu: React.FC<MultiStepMenuProps> = ({
   };
 
   // Move to the next step if allowed
-// Move to the next step if allowed, otherwise show the warning popup
-const nextStep = () => {
-  if (isNextButtonEnabled && currentStepId < 5) {
-    setCurrentStepId((prev) => prev + 1);
-  } else {
-    setShowWarningPopup(true); // Show the warning popup if not allowed to proceed
-  }
-};
-
+  // Move to the next step if allowed, otherwise show the warning popup
+  const nextStep = () => {
+    if (isNextButtonEnabled && currentStepId < 5) {
+      setCurrentStepId((prev) => prev + 1);
+    } else {
+      setShowWarningPopup(true); // Show the warning popup if not allowed to proceed
+    }
+  };
 
   // Move to the previous step if possible
   const previousStep = () => {
@@ -69,8 +67,7 @@ const nextStep = () => {
   };
 
   return (
-    <div className="flex flex-col">
-
+    <div className="flex flex-col max-lg:absolute max-lg:bottom-0 max-lg:left-0 max-lg:w-full pointer-events-auto">
       {/* Step navigation (pass necessary props to StepsConfiguratorVolet) */}
       <StepsConfiguratorVolet
         currentStepId={currentStepId}
@@ -97,7 +94,6 @@ const nextStep = () => {
         isNextButtonEnabled={isNextButtonEnabled}
       />
 
-      {/* Information modal (conditionally displayed) */}
       {showInformation && <Information onClose={toggleInformationDisplay} />}
 
       {/* Warning popup (shown when the user tries to navigate without completing steps) */}
