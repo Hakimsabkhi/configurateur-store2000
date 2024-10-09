@@ -108,7 +108,7 @@ const Information: React.FC<InformationProps> = ({ onClose }) => {
       const timer = setTimeout(() => {
         setShowSuccessMessage(true);
         if (onClose) onClose(); // Close the entire modal after 5 seconds
-      }, 10000);
+      }, 5000);
 
       return () => clearTimeout(timer); // Cleanup the timer
     }
