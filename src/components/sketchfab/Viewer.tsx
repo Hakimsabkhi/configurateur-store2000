@@ -7,13 +7,7 @@ import APIDataFetcher from "./APIDataFetcher";
 import useScript from "../../hooks/useScript";
 import { ViewerProps } from "../../types/interfaces";
 import LoadingScreen from "../LoadingScreen";
-import Image from "next/image";
 import ConfiguratorMenu from "../ConfiguratorMenu";
-import { ConfigIconIcon } from "../../assets/imageModule";
-import { IoSettingsSharp } from 'react-icons/io5'
-import { FiSettings } from 'react-icons/fi';
-import { MdBuild } from 'react-icons/md';
-import { AiFillSetting } from 'react-icons/ai';
 import { RiSettings3Fill } from 'react-icons/ri';
 
 
@@ -35,6 +29,7 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const apiClientRef = useRef<any>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [lastStepId, setLastStepId] = useState(1);
 
   const scriptLoaded = useScript(
     "https://static.sketchfab.com/api/sketchfab-viewer-1.12.1.js",
@@ -185,6 +180,11 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
     console.log(selections);
   };
 
+  const handleStepChange = (stepId: number) => {
+    setLastStepId(stepId); // Update the last step reached
+  };
+
+
   return (
     <div className="absolute w-full h-full">
       {isLoading && <LoadingScreen />}
@@ -228,20 +228,17 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
                 onClick={toggleMenu}
               >
                <RiSettings3Fill size={34} />
-              {/*   <Image
-                  src={ConfigIconIcon}
-                  alt="Config Icon"
-                  className="button-icon"
-                  width={40}
-                  height={40}
-                /> */}
               </button>
               <h2 className="flex items-center text-2xl max-2xl:text-xl max-xl:text-base max-lg:text-base max-md:text-sm w-fit h-full uppercase font-semibold">
                 Configurer mon volet
               </h2>
             </div>
             {menuVisible && (      
-                <ConfiguratorMenu onSelectionsChange={handleSelectionsChange} />
+                  <ConfiguratorMenu
+                  onSelectionsChange={handleSelectionsChange}
+                  initialStep={lastStepId} // Pass the last step reached to the menu
+                  onStepChange={handleStepChange} // Pass the step change handler
+                />
             )}
           </div>
         </>
