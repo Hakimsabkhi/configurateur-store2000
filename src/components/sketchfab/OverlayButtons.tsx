@@ -1,20 +1,10 @@
 import React, { useState, useRef, useEffect, useMemo } from "react";
-import {
-  outsideViewIcon,
-  insideViewIcon,
-  OsideViewIcon,
-  IsideViewIcon,
-  enableRotation,
-  disableRotation,
-} from "../../assets/imageModule";
-import { OverlayButtonsProps } from "../../types/interfaces";
-import Image from "next/image";
+import { OverlayButtonsProps } from "../../types/interfaces";;
 import { FaRegEye } from 'react-icons/fa';
 import { BiArrowToLeft } from 'react-icons/bi';
 import { FiEye } from 'react-icons/fi';
 import { BiArrowToRight } from 'react-icons/bi';
 import { BiRotateRight } from 'react-icons/bi';
-import { FaVideo } from 'react-icons/fa';
 import { FaPauseCircle } from 'react-icons/fa';
 
 
@@ -132,13 +122,6 @@ const OverlayButtons: React.FC<OverlayButtonsProps> = ({
         disabled={buttonsDisabled}
       >
         <FaRegEye size={34} />
-        {/* <Image
-          src={outsideViewIcon}
-          alt="Outside View"
-          className="button-icon "
-          width={40}
-          height={40}
-        /> */}
       </button>
       <button
         onClick={handleInsideView}
@@ -146,13 +129,6 @@ const OverlayButtons: React.FC<OverlayButtonsProps> = ({
         disabled={buttonsDisabled}
       >
         <FiEye size={34} />
-      {/*   <Image
-          src={insideViewIcon}
-          alt="Inside View"
-          className="button-icon"
-          width={40}
-          height={40}
-        /> */}
       </button>
       <button
         onClick={handleOSideView}
@@ -160,13 +136,6 @@ const OverlayButtons: React.FC<OverlayButtonsProps> = ({
         disabled={buttonsDisabled}
       >
         <BiArrowToRight size={34} />
-      {/*   <Image
-          src={OsideViewIcon}
-          alt="Side View"
-          className="button-icon"
-          width={40}
-          height={40}
-        /> */}
       </button>
       <button
         onClick={handleISideView}
@@ -174,13 +143,6 @@ const OverlayButtons: React.FC<OverlayButtonsProps> = ({
         disabled={buttonsDisabled}
       >
          <BiArrowToLeft size={34} />
-      {/*   <Image
-          src={IsideViewIcon}
-          alt="Side View"
-          className="button-icon"
-          width={40}
-          height={40}
-        /> */}
       </button>
       <button 
       onClick={toggleRotation} 

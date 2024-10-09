@@ -116,7 +116,7 @@ const Information: React.FC<InformationProps> = ({ onClose }) => {
 
   return (
     <div className="fixed top-0 left-0 w-full h-screen bg-[rgba(0,0,0,0.8)] flex justify-center items-center z-[1000]">
-      <div className="min-h-[20%] flex flex-col items-center max-lg:gap-2 w-[40%] max-lg:w-[90%] h-fit p-2 bg-tertiary rounded-lg shadow-lg">
+      <div className="min-h-[20%] max-lg:min-h-[50%] flex flex-col items-center max-lg:gap-2 w-[40%] max-lg:w-[90%] h-fit p-2 bg-tertiary rounded-lg shadow-lg">
         <div className="flex justify-end w-full h-[40px]">
           <button type="button" className="close-button" onClick={onClose}>
             <Image src={exitIcon} loading="eager" alt="Close" width={40} height={40} />
@@ -147,7 +147,7 @@ const Information: React.FC<InformationProps> = ({ onClose }) => {
             <p>Nous vous remercions sincèrement pour votre demande de devis concernant le volet roulant. Nous l&#39;avons bien reçue et nous vous contacterons dans les plus brefs délais pour vous apporter toute l&#39;assistance nécessaire.</p>
           </div>
         ) : (
-          <div className=" text-cText flex flex-col gap-2 justify-center item-center text-center mb-8 px-4">
+          <div className="my-auto text-cText flex flex-col gap-2 justify-center item-center text-center px-4">
             <h2 className="font-bold text-xl uppercase">Erreur</h2>
             <p>Une erreur s&apos;est produite: {errorMessage}</p>
           </div>
